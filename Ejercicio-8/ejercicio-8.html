@@ -1,0 +1,73 @@
+<!-- 8- Escribir un programa que agregue y quite nombres del listado generado en el programa anterior.
+Emplear un formulario para ingresar un nuevo nombre. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Nombres</title>
+</head>
+<body>
+    <ul id="listaNombres"></ul>
+    
+    <form id="formularioAgregar">
+        <input type="text" id="nombreNuevo" placeholder="Ingresa un nombre" required>
+        <button type="submit">Agregar Nombre</button>
+    </form>
+    
+    <button id="quitarNombre">Quitar Último Nombre</button>
+
+    <script>
+        // Arreglo de nombres de personas
+        const nombres = ['Ana', 'Carlos', 'Beatriz', 'David', 'Elena'];
+
+        // Seleccionar elementos por su id
+        const listaNombres = document.getElementById('listaNombres');
+        const formularioAgregar = document.getElementById('formularioAgregar');
+        const nombreNuevo = document.getElementById('nombreNuevo');
+        const quitarNombre = document.getElementById('quitarNombre');
+
+        // Función para generar el listado de nombres
+        function generarListado() {
+            // Limpiar cualquier contenido previo
+            listaNombres.innerHTML = '';
+
+            // Recorrer el arreglo de nombres y crear los elementos <li>
+            nombres.forEach(nombre => {
+                const li = document.createElement('li');
+                li.textContent = nombre;
+                listaNombres.appendChild(li);
+            });
+        }
+
+        // Función para agregar un nombre al listado
+        function agregarNombre(event) {
+            event.preventDefault();
+            const nuevoNombre = nombreNuevo.value.trim();
+            if (nuevoNombre) {
+                nombres.push(nuevoNombre);
+                generarListado();
+                nombreNuevo.value = '';
+            }
+        }
+
+        // Función para quitar el último nombre del listado
+        function quitarUltimoNombre() {
+            if (nombres.length > 0) {
+                nombres.pop();
+                generarListado();
+            }
+        }
+
+        // Agregar event listener al formulario para agregar nombre
+        formularioAgregar.addEventListener('submit', agregarNombre);
+
+        // Agregar event listener al botón para quitar el último nombre
+        quitarNombre.addEventListener('click', quitarUltimoNombre);
+
+        // Llamar a la función para generar el listado cuando se carga la página
+        generarListado();
+    </script>
+</body>
+</html>

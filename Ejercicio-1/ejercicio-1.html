@@ -1,0 +1,21 @@
+<!-- 1- Escribir una pagina que asigne el texto ‘hola mundo’ a un elemento <p> vacío desde JavaScript. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Mundo</title>
+</head>
+<body>
+    <p id="mensaje"></p>
+
+    <script>
+        // Seleccionar el elemento <p> por su id
+        const parrafo = document.getElementById('mensaje');
+        
+        // Asignar el texto 'Hola Mundo' al elemento <p>
+        parrafo.textContent = 'Hola Mundo';
+    </script>
+</body>
+</html>

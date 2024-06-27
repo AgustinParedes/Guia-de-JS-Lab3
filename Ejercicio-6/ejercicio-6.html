@@ -1,0 +1,94 @@
+<!-- 6- Realiza una pagina con listas desplegables <select> que permitan modificar la dirección,
+    justificado y alineado de tres <div> contenidos dentro de otro <div> empleando ‘flexbox’. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Flexbox</title>
+    <style>
+        #contenedor {
+            display: flex;
+            width: 100%;
+            height: 200px;
+            border: 1px solid black;
+        }
+
+        .item {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            background-color: lightblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <label for="direccion">Dirección:</label>
+    <select id="direccion">
+        <option value="row">Fila</option>
+        <option value="row-reverse">Fila Inversa</option>
+        <option value="column">Columna</option>
+        <option value="column-reverse">Columna Inversa</option>
+    </select>
+    <br>
+    <label for="justificacion">Justificación:</label>
+    <select id="justificacion">
+        <option value="flex-start">Inicio</option>
+        <option value="center">Centro</option>
+        <option value="flex-end">Final</option>
+        <option value="space-between">Espacio entre</option>
+        <option value="space-around">Espacio alrededor</option>
+        <option value="space-evenly">Espacio uniformemente</option>
+    </select>
+    <br>
+    <label for="alineacion">Alineación:</label>
+    <select id="alineacion">
+        <option value="flex-start">Inicio</option>
+        <option value="center">Centro</option>
+        <option value="flex-end">Final</option>
+        <option value="stretch">Estirar</option>
+        <option value="baseline">Línea base</option>
+    </select>
+    <br>
+    <div id="contenedor">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+
+    <script>
+        const contenedor = document.getElementById('contenedor');
+        const direccionSelect = document.getElementById('direccion');
+        const justificacionSelect = document.getElementById('justificacion');
+        const alineacionSelect = document.getElementById('alineacion');
+
+        // Función para cambiar la dirección del flexbox
+        function cambiarDireccion() {
+            const direccion = direccionSelect.value;
+            contenedor.style.flexDirection = direccion;
+        }
+
+        // Función para cambiar la justificación del flexbox
+        function cambiarJustificacion() {
+            const justificacion = justificacionSelect.value;
+            contenedor.style.justifyContent = justificacion;
+        }
+
+        // Función para cambiar la alineación del flexbox
+        function cambiarAlineacion() {
+            const alineacion = alineacionSelect.value;
+            contenedor.style.alignItems = alineacion;
+        }
+
+        // Agregar event listeners a los select
+        direccionSelect.addEventListener('change', cambiarDireccion);
+        justificacionSelect.addEventListener('change', cambiarJustificacion);
+        alineacionSelect.addEventListener('change', cambiarAlineacion);
+    </script>
+</body>
+</html>

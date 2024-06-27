@@ -1,0 +1,87 @@
+<!-- 10- Realice un formulario que pida el nombre, apellido y edad de una persona. Agregar un botón
+‘enviar’ para que al presionarlo verifique que el nombre y apellido no estén vacíos y la edad no sea
+negativa y mayor o igual a 18. Mostrar un mensaje con los resultados en un elemento <p>. -->
+
+
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Formulario de Persona</title>
+      <style>
+        /* Estilos simples para el formulario */
+        form {
+          max-width: 400px;
+          margin: 20px auto;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          background-color: #f9f9f9;
+        }
+        label, input, button {
+          display: block;
+          margin-bottom: 10px;
+        }
+        button {
+          padding: 10px 15px;
+          background-color: #007bff;
+          color: white;
+          border: none;
+          border-radius: 3px;
+          cursor: pointer;
+        }
+        button:hover {
+          background-color: #0056b3;
+        }
+        p#resultado {
+          margin-top: 10px;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          background-color: #fff;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>Formulario de Persona</h1>
+    
+      <form id="formulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required>
+    
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" required>
+    
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" required>
+    
+        <button type="button" onclick="validarFormulario()">Enviar</button>
+      </form>
+    
+      <p id="resultado"></p>
+    
+      <script>
+        function validarFormulario() {
+          // Obtener valores de los campos
+          const nombre = document.getElementById('nombre').value.trim();
+          const apellido = document.getElementById('apellido').value.trim();
+          const edad = parseInt(document.getElementById('edad').value);
+    
+          // Validar que nombre y apellido no estén vacíos y edad sea válida
+          if (nombre === '' || apellido === '') {
+            mostrarResultado('Por favor ingrese nombre y apellido.');
+          } else if (edad < 18 || isNaN(edad)) {
+            mostrarResultado('La edad debe ser un número válido y mayor o igual a 18.');
+          } else {
+            mostrarResultado(`Datos válidos: Nombre: ${nombre}, Apellido: ${apellido}, Edad: ${edad}`);
+          }
+        }
+    
+        function mostrarResultado(mensaje) {
+          const resultado = document.getElementById('resultado');
+          resultado.textContent = mensaje;
+        }
+      </script>
+    </body>
+    </html>

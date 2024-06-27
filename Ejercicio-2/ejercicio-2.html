@@ -1,0 +1,31 @@
+<!-- 2- Realizar un programa que modifique el texto de un elemento <p> con el valor de un entrada
+<input> al presionar un botón <button>. -->
+
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Modificar Texto</title>
+    </head>
+    <body>
+        <input type="text" id="entrada" placeholder="Escribe algo">
+        <button id="boton">Actualizar Texto</button>
+        <p id="mensaje"></p>
+    
+        <script>
+            // Seleccionar los elementos por su id
+            const input = document.getElementById('entrada');
+            const boton = document.getElementById('boton');
+            const parrafo = document.getElementById('mensaje');
+    
+            // Agregar un event listener al botón
+            boton.addEventListener('click', () => {
+                // Obtener el valor del input
+                const texto = input.value;
+                // Asignar el valor del input al contenido del párrafo
+                parrafo.textContent = texto;
+            });
+        </script>
+    </body>
+    </html>

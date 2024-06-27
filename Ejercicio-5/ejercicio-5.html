@@ -1,0 +1,53 @@
+<!-- 5- Empleando dos listas desplegables con <select>, realizar un programa que modifique el color de
+    texto y el color de fondo de un elemento <p>. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Colores</title>
+</head>
+<body>
+    <label for="colorTexto">Color del Texto:</label>
+    <select id="colorTexto">
+        <option value="black">Negro</option>
+        <option value="red">Rojo</option>
+        <option value="green">Verde</option>
+        <option value="blue">Azul</option>
+    </select>
+    <br>
+    <label for="colorFondo">Color de Fondo:</label>
+    <select id="colorFondo">
+        <option value="white">Blanco</option>
+        <option value="yellow">Amarillo</option>
+        <option value="lightgray">Gris Claro</option>
+        <option value="lightblue">Azul Claro</option>
+    </select>
+    <br>
+    <p id="mensaje">Este es un texto de ejemplo.</p>
+
+    <script>
+        // Seleccionar los elementos por su id
+        const colorTextoSelect = document.getElementById('colorTexto');
+        const colorFondoSelect = document.getElementById('colorFondo');
+        const parrafo = document.getElementById('mensaje');
+
+        // Función para cambiar el color del texto
+        function cambiarColorTexto() {
+            const colorTexto = colorTextoSelect.value;
+            parrafo.style.color = colorTexto;
+        }
+
+        // Función para cambiar el color de fondo
+        function cambiarColorFondo() {
+            const colorFondo = colorFondoSelect.value;
+            parrafo.style.backgroundColor = colorFondo;
+        }
+
+        // Agregar event listeners a los select
+        colorTextoSelect.addEventListener('change', cambiarColorTexto);
+        colorFondoSelect.addEventListener('change', cambiarColorFondo);
+    </script>
+</body>
+</html>

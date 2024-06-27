@@ -1,0 +1,42 @@
+<!-- 9- A partir de un arreglo con datos de una persona (nombre, apellido, edad) realice una pagina que
+muestre el listado de personas con sus datos empleando <ul> y <li>. -->
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listado de Personas</title>
+</head>
+<body>
+  <h1>Listado de Personas</h1>
+
+  <ul id="lista-personas">
+    <!-- Aquí se generará la lista dinámicamente -->
+  </ul>
+
+  <script>
+    // Arreglo de personas con sus datos
+    const personas = [
+      { nombre: 'Juan', apellido: 'Pérez', edad: 30 },
+      { nombre: 'María', apellido: 'García', edad: 25 },
+      { nombre: 'Carlos', apellido: 'López', edad: 40 }
+      // Puedes agregar más personas según sea necesario
+    ];
+
+    // Obtener el elemento <ul> donde se mostrarán las personas
+    const lista = document.getElementById('lista-personas');
+
+    // Recorrer el arreglo de personas y generar los <li>
+    personas.forEach(persona => {
+      // Crear un nuevo elemento <li>
+      const li = document.createElement('li');
+      // Asignar el contenido del <li> con los datos de la persona
+      li.textContent = `${persona.nombre} ${persona.apellido}, Edad: ${persona.edad}`;
+      // Agregar el <li> al <ul>
+      lista.appendChild(li);
+    });
+  </script>
+</body>
+</html>

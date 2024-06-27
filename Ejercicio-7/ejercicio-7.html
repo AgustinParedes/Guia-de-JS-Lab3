@@ -1,0 +1,38 @@
+<!-- 7- A partir de un arreglo de con nombres de personas realizar un programa que genere el listado de
+nombres empleando <ul> y <li>. -->
+
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Listado de Nombres</title>
+    </head>
+    <body>
+        <ul id="listaNombres"></ul>
+    
+        <script>
+            // Arreglo de nombres de personas
+            const nombres = ['Ana', 'Carlos', 'Beatriz', 'David', 'Elena'];
+    
+            // Seleccionar el elemento <ul> por su id
+            const listaNombres = document.getElementById('listaNombres');
+    
+            // Función para generar el listado de nombres
+            function generarListado() {
+                // Limpiar cualquier contenido previo
+                listaNombres.innerHTML = '';
+    
+                // Recorrer el arreglo de nombres y crear los elementos <li>
+                nombres.forEach(nombre => {
+                    const li = document.createElement('li');
+                    li.textContent = nombre;
+                    listaNombres.appendChild(li);
+                });
+            }
+    
+            // Llamar a la función para generar el listado cuando se carga la página
+            generarListado();
+        </script>
+    </body>
+    </html>
