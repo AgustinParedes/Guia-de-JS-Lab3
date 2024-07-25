@@ -6,68 +6,60 @@ Emplear un formulario para ingresar un nuevo nombre. -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de Nombres</title>
+    <title>Listado de Nombres que se pueden quitar y agregar</title>
 </head>
 <body>
-    <ul id="listaNombres"></ul>
+    <ul id="listado"></ul>
     
-    <form id="formularioAgregar">
-        <input type="text" id="nombreNuevo" placeholder="Ingresa un nombre" required>
-        <button type="submit">Agregar Nombre</button>
+    <form id="formulario">
+        <input type="text" id="nombre" placeholder="Ingresa un nombre" required>
+        <button type="submit" id="agregarbot" onclick="agregar()">Agregar Nombre</button>
     </form>
     
-    <button id="quitarNombre">Quitar Último Nombre</button>
+    <button id="quitar" onclick="eliminar()">Quitar Último Nombre</button>
 
     <script>
         // Arreglo de nombres de personas
         const nombres = ['Ana', 'Carlos', 'Beatriz', 'David', 'Elena'];
+        
 
-        // Seleccionar elementos por su id
-        const listaNombres = document.getElementById('listaNombres');
-        const formularioAgregar = document.getElementById('formularioAgregar');
-        const nombreNuevo = document.getElementById('nombreNuevo');
-        const quitarNombre = document.getElementById('quitarNombre');
+        const formulario = document.getElementById("formulario") //nombre del formulario
+        const nombre = document.getElementById("nombre") //nombre del input
+        const listado = document.getElementById("listado") //nombre del ul
+        const botonagregar = document.getElementById("agregarbot")
+        const botonquitar = document.getElementById("agregarquit")
 
-        // Función para generar el listado de nombres
-        function generarListado() {
-            // Limpiar cualquier contenido previo
-            listaNombres.innerHTML = '';
+        function agregar(){}
+        formulario.onsubmit = (e) => {
+            if (nombre.value !== "") {
 
-            // Recorrer el arreglo de nombres y crear los elementos <li>
-            nombres.forEach(nombre => {
-                const li = document.createElement('li');
-                li.textContent = nombre;
-                listaNombres.appendChild(li);
-            });
-        }
+                const item = document.createElement("li")
+                item.textContent = nombre.value
+                nombre.value = ""
+                listado.appendChild(item)
+            }
 
-        // Función para agregar un nombre al listado
-        function agregarNombre(event) {
-            event.preventDefault();
-            const nuevoNombre = nombreNuevo.value.trim();
-            if (nuevoNombre) {
-                nombres.push(nuevoNombre);
-                generarListado();
-                nombreNuevo.value = '';
+                // const eliminar = document.createElement("button")
+                // eliminar.textContent = "eliminar"
+        function eliminar(){
+        formulario.onsubmit = (e) => {
+           botonquitar.appendChild(listado)
+                botonquitar.onclick = () =>{
+                    if(confirm(`¿Quiere eliminar el nombre?`)){
+                        eliminar.remove()
+                        item.remove()
+                    }
+                }
+                e.preventDefault(); 
+                }
+                
             }
         }
 
-        // Función para quitar el último nombre del listado
-        function quitarUltimoNombre() {
-            if (nombres.length > 0) {
-                nombres.pop();
-                generarListado();
-            }
+        function $(elemento){
+            return document.getElementById(elemento);
         }
-
-        // Agregar event listener al formulario para agregar nombre
-        formularioAgregar.addEventListener('submit', agregarNombre);
-
-        // Agregar event listener al botón para quitar el último nombre
-        quitarNombre.addEventListener('click', quitarUltimoNombre);
-
-        // Llamar a la función para generar el listado cuando se carga la página
-        generarListado();
+        
     </script>
 </body>
 </html>

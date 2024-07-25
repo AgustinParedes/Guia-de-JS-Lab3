@@ -9,23 +9,22 @@
         <title>Modificar Texto</title>
     </head>
     <body>
-        <input type="text" id="entrada" placeholder="Escribe algo">
-        <button id="boton">Actualizar Texto</button>
-        <p id="mensaje"></p>
-    
+        <div>
+            <p id="pe"></p>
+            <label for="label"></label>
+            <input name="label" type="text" id="input">
+
+            <button id="boton" onclick="cambiar()">Cambiar</button>
+        </div>
+        
         <script>
-            // Seleccionar los elementos por su id
-            const input = document.getElementById('entrada');
-            const boton = document.getElementById('boton');
-            const parrafo = document.getElementById('mensaje');
-    
-            // Agregar un event listener al botón
-            boton.addEventListener('click', () => {
-                // Obtener el valor del input
-                const texto = input.value;
-                // Asignar el valor del input al contenido del párrafo
-                parrafo.textContent = texto;
-            });
+            pe = document.getElementById("pe")
+            input = $("input")
+            boton = $("boton")
+
+            function cambiar() {
+                pe.innerHTML = input.value
+            }
         </script>
     </body>
     </html>

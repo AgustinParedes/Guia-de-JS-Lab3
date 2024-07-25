@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de botones (0 al 20)</title>
+</head>
+<body>
+    <div>
+        <p>contador:</p>
+        <h1 id="contador">10</h1>
+        <div>
+            <button id="botonSuma">Boton +1</button>
+            <button id="botonResta">Boton -2</button>
+        </div>
+    </div>
+
+    <script>
+        const contador = document.getElementById("contador")
+        const botonsuma = document.getElementById("botonSuma")
+        const botonresta = document.getElementById("botonResta")
+
+        botonsuma.addEventListener ("click",() =>{
+            let valor = Number(contador.textContent)
+            valor += 1
+            if (valor > 20){
+                contador.textContent = 20
+            } else{
+                contador.textContent = valor
+            }
+            })
+
+            botonresta.addEventListener ("click", ()=>{
+                let valor = Number(contador.textContent)
+                valor -= 2
+                if (valor < 0){
+                    contador.textContent = 0
+                } else{
+                    contador.textContent = valor
+                }
+            })
+    </script>
+</body>
+</html>

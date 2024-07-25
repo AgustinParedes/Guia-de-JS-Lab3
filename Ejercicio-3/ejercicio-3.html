@@ -9,21 +9,22 @@
         <title>Modificar Texto en Tiempo Real</title>
     </head>
     <body>
-        <input type="text" id="entrada" placeholder="Escribe algo">
-        <p id="mensaje"></p>
-    
+        <div>
+            <p id="pe"></p>
+            <input type="text" id="input" onkeyup="cambiar()">
+        </div>
+        
         <script>
-            // Seleccionar los elementos por su id
-            const input = document.getElementById('entrada');
-            const parrafo = document.getElementById('mensaje');
-    
-            // Agregar un event listener al input
-            input.addEventListener('input', () => {
-                // Obtener el valor del input
-                const texto = input.value;
-                // Asignar el valor del input al contenido del párrafo
-                parrafo.textContent = texto;
-            });
+            const pe = $("pe")
+            const input = $("input")
+
+            function cambiar(){
+                pe.innerHTML = input.value
+            }
+
+            function $ (elemento) {
+                return document.getElementById(elemento)
+            }
         </script>
     </body>
     </html>

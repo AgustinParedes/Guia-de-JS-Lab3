@@ -85,10 +85,18 @@
             contenedor.style.alignItems = alineacion;
         }
 
-        // Agregar event listeners a los select
-        direccionSelect.addEventListener('change', cambiarDireccion);
-        justificacionSelect.addEventListener('change', cambiarJustificacion);
-        alineacionSelect.addEventListener('change', cambiarAlineacion);
-    </script>
+        //Poner en función las funciones(?
+        direccionSelect.onchange = () =>{
+            contenedor.style.flexDirection = direccion.value
+        }
+
+        justificacionSelect.onchange = () =>{
+            contenedor.style.justifyContent = justificacion.value
+        }
+
+        alineacionSelect.onchange = () =>{
+            contenedor.style.alignItems = alineacion.value
+        }
+    </script> 
 </body>
 </html>

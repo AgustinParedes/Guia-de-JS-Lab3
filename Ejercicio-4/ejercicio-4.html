@@ -10,59 +10,34 @@ otro para la superficie. -->
     <title>Calculadora de Rectángulo</title>
 </head>
 <body>
-    <label for="base">Base:</label>
-    <input type="number" id="base" placeholder="Ingresa la base">
-    <br>
-    <label for="altura">Altura:</label>
-    <input type="number" id="altura" placeholder="Ingresa la altura">
-    <br>
-    <button id="perimetroBtn">Calcular Perímetro</button>
-    <button id="superficieBtn">Calcular Superficie</button>
+    <label for="base">Base</label>
+    <input type="number" name="base" id="base">
+    
+    <label for="altura">Altura</label>
+    <input type="number" name="altura" id="altura">
+    
+    <button type="button" id="botonsup" onclick="superficie()">superficie</button>
+    <button type="button" id="botonperi" onclick="perimetro()">Perímetro</button>
 
     <script>
-        // Seleccionar los elementos por su id
-        const baseInput = document.getElementById('base');
-        const alturaInput = document.getElementById('altura');
-        const perimetroBtn = document.getElementById('perimetroBtn');
-        const superficieBtn = document.getElementById('superficieBtn');
+        const base = $("base")
+        const altura = $("altura")
+        const botonperi = $("botonperi")
+        const botonsup = $("botonsup")
 
-        // Función para calcular el perímetro
-        function calcularPerimetro(base, altura) {
-            return 2 * (base + altura);
+        function perimetro() {
+            const perimetro = (base.value * 2) + (altura.value * 2)
+            alert(perimetro)
         }
 
-        // Función para calcular la superficie
-        function calcularSuperficie(base, altura) {
-            return base * altura;
+        function superficie() {
+            const superficie = base.value * altura.value
+            alert(superficie)
         }
 
-        // Agregar event listener al botón de perímetro
-        perimetroBtn.addEventListener('click', () => {
-            const base = parseFloat(baseInput.value);
-            const altura = parseFloat(alturaInput.value);
-            
-            if (base <= 0 || altura <= 0) {
-                alert("Por favor ingresa valores numéricos válidos.");
-                return;
-            }
-
-            const perimetro = calcularPerimetro(base, altura);
-            alert(`El perímetro del rectángulo es: ${perimetro}`);
-        });
-
-        // Agregar event listener al botón de superficie
-        superficieBtn.addEventListener('click', () => {
-            const base = parseFloat(baseInput.value);
-            const altura = parseFloat(alturaInput.value);
-
-            if (base <= 0 || altura <= 0 || !base || !altura) {
-                alert("Por favor ingresa valores numéricos válidos.");
-                return;
-            }
-
-            const superficie = calcularSuperficie(base, altura);
-            alert(`La superficie del rectángulo es: ${superficie}`);
-        });
+        function $ (elemento){
+            return document.getElementById(elemento)
+        }
     </script>
 </body>
 </html>

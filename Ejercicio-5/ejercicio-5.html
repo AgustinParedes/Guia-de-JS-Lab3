@@ -9,45 +9,37 @@
     <title>Modificar Colores</title>
 </head>
 <body>
-    <label for="colorTexto">Color del Texto:</label>
-    <select id="colorTexto">
-        <option value="black">Negro</option>
-        <option value="red">Rojo</option>
-        <option value="green">Verde</option>
-        <option value="blue">Azul</option>
+    <p id="pe">Elemento P que se modificará</p>
+
+    <label for="texto">Color Texto</label>
+    <select name="texto" id="colortexto" onchange="cambiarTexto()">
+        <option value="red">rojo</option>
+        <option value="blue">azul</option>
+        <option value="orange">naranja</option>
+        <option value="purple">púrpura</option>
     </select>
-    <br>
-    <label for="colorFondo">Color de Fondo:</label>
-    <select id="colorFondo">
-        <option value="white">Blanco</option>
-        <option value="yellow">Amarillo</option>
-        <option value="lightgray">Gris Claro</option>
-        <option value="lightblue">Azul Claro</option>
+
+
+    <label for="fondo">Color Fondo</label>
+    <select name="fondo" id="colorfondo" onchange="cambiarFondo()">
+        <option value="yellow">amarillo</option>
+        <option value="brown">marrón</option>
+        <option value="green">verde</option>
+        <option value="black">negro</option>
     </select>
-    <br>
-    <p id="mensaje">Este es un texto de ejemplo.</p>
 
     <script>
-        // Seleccionar los elementos por su id
-        const colorTextoSelect = document.getElementById('colorTexto');
-        const colorFondoSelect = document.getElementById('colorFondo');
-        const parrafo = document.getElementById('mensaje');
-
-        // Función para cambiar el color del texto
-        function cambiarColorTexto() {
-            const colorTexto = colorTextoSelect.value;
-            parrafo.style.color = colorTexto;
+        function cambiarTexto(){
+            pee = document.getElementById("pe");
+            textocolor = document.getElementById("colortexto");
+            pee.style.color = textocolor.value;
         }
 
-        // Función para cambiar el color de fondo
-        function cambiarColorFondo() {
-            const colorFondo = colorFondoSelect.value;
-            parrafo.style.backgroundColor = colorFondo;
+        function cambiarFondo(){
+            pee = document.getElementById("pe");
+            fondo = document.getElementById("colorfondo");
+            pee.style.backgroundColor = fondo.value;
         }
-
-        // Agregar event listeners a los select
-        colorTextoSelect.addEventListener('change', cambiarColorTexto);
-        colorFondoSelect.addEventListener('change', cambiarColorFondo);
     </script>
 </body>
 </html>
